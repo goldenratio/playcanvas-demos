@@ -19,7 +19,7 @@
 
 <body>
 <!-- The canvas element -->
-<canvas id="application-canvas"></canvas>
+<canvas id="application-canvas" width="506" height="900"></canvas>
 
 <!-- The script -->
 <script>
@@ -37,6 +37,11 @@
     // Set the canvas to fill the window and automatically change resolution to be the same as the canvas size
     app.setCanvasFillMode(pc.FILLMODE_FILL_WINDOW);
     app.setCanvasResolution(pc.RESOLUTION_AUTO);
+
+
+    window.addEventListener('resize', ()=> {
+        app.resizeCanvas();
+    });
 
     app.scene.ambientLight = new pc.Color(0.2, 0.2, 0.2);
 
@@ -226,7 +231,7 @@
     // we'll just use them to clone other Entities
     templates.forEach(function (template) {
         template.enabled = false;
-    })
+    });
 
     // ***********    Update Function   *******************
 
