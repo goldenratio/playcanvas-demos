@@ -64,8 +64,7 @@
         {
 
             // create box entity
-            this.cube = new pc.Entity('cube');
-            let cube = this.cube;
+            let cube = new pc.Entity('cube');
             cube.addComponent('model', {
                 type: 'box'
             });
@@ -88,6 +87,8 @@
             // set up initial positions and orientations
             camera.setPosition(0, 0, 3);
             light.setEulerAngles(45, 0, 0);
+
+            this.cube = cube;
         }
 
         update(deltaTime)
