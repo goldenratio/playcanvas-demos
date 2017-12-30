@@ -58,7 +58,6 @@
                 type: "box"
             });
 
-            const restitution = 0.5;
             // make the floor white
             floor.model.material = createMaterial("white");
 
@@ -84,7 +83,7 @@
 
             floor.root.script.create("p2Material", {
                 attributes: {
-                    restitution: restitution
+                    restitution: 0.5
                 }
             });
         }
@@ -137,8 +136,6 @@
         {
             super();
 
-            const restitution = 0.5;
-
             let sphereTemplate = this;
             sphereTemplate.addComponent("model", {
                 type: "sphere",
@@ -167,7 +164,7 @@
             });
             sphereTemplate.root.script.create("p2Material", {
                 attributes: {
-                    restitution: restitution
+                    restitution: 0.5
                 }
             });
 
@@ -202,7 +199,8 @@
             app.root.script.create("p2World", {
                 attributes: {
                     defaultFriction: 0,
-                    gravity: new pc.Vec2(0, -9.8)
+                    gravity: new pc.Vec2(0, -9.8),
+                    debugDraw: true
                 }
             });
         }
@@ -232,7 +230,9 @@
 
     // A sphere...
     let sphere = new Sphere();
-    app.root.addChild(sphere);
+    setTimeout(() => {
+        app.root.addChild(sphere);
+    }, 1000);
 
     window.addEventListener('resize', ()=> {
         app.resizeCanvas();
