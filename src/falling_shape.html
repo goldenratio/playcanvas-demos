@@ -76,6 +76,8 @@
     // scale it
     floor.setLocalScale(10, 1, 10);
 
+    floor.rotate(20, 0, 0);
+
     // add a rigidbody component so that other objects collide with it
     floor.addComponent("rigidbody", {
         type: "static",
