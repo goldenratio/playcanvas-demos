@@ -55,13 +55,6 @@
             floor.setLocalScale(10, 1, 10);
             //floor.setPosition(0, -10, 0);
 
-            //floor.rotate(20, 0, 0);
-
-            // add a rigidbody component so that other objects collide with it
-            floor.addComponent("rigidbody", {
-                type: "static",
-                restitution: restitution
-            });
 
             // add a collision component
             floor.addComponent("collision", {
@@ -146,11 +139,6 @@
                 castShadows: true
             });
 
-            sphereTemplate.addComponent("rigidbody", {
-                type: "dynamic",
-                mass: 50,
-                restitution: restitution
-            });
 
             sphereTemplate.addComponent("collision", {
                 type: "sphere",
@@ -209,9 +197,6 @@
             app.setCanvasResolution(pc.RESOLUTION_AUTO);
 
             app.scene.ambientLight = new pc.Color(0.2, 0.2, 0.2);
-
-            // Set the gravity for our rigid bodies
-            //app.systems.rigidbody.setGravity(0, -9.8, 0);
 
             app.root.addComponent("script");
             app.root.script.create("p2World", {
